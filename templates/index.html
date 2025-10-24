@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cube"></i>
+                <span>Js3d</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#calculator" class="nav-link">Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#room3d" class="nav-link">3D Room</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Welcome to <span class="gradient-text">Modern Web App</span>
+                    </h1>
+                    <p class="hero-description">
+                        A beautiful, responsive web application built with Flask, HTML, CSS, and JavaScript. 
+                        Experience modern design with smooth animations and interactive features.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('features')">
+                            <i class="fas fa-rocket"></i>
+                            Get Started
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('calculator')">
+                            <i class="fas fa-calculator"></i>
+                            Try Calculator
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Clean Code</h3>
+                        <p>Modern development practices</p>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsive</h3>
+                        <p>Works on all devices</p>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Fast</h3>
+                        <p>Optimized performance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Modern Design</h3>
+                        <p>Beautiful, clean interface with smooth animations and modern UI components.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Responsive Layout</h3>
+                        <p>Fully responsive design that works perfectly on desktop, tablet, and mobile devices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Interactive Features</h3>
+                        <p>Dynamic content loading, real-time calculations, and smooth user interactions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Flask Backend</h3>
+                        <p>Robust Python Flask backend with RESTful API endpoints for data processing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="calculator">
+            <div class="container">
+                <h2 class="section-title">Interactive Calculator</h2>
+                <div class="calculator-container">
+                    <div class="calculator-card">
+                        <div class="calculator-header">
+                            <h3>Simple Calculator</h3>
+                            <p>Try our interactive calculator powered by Flask</p>
+                        </div>
+                        <div class="calculator-form">
+                            <div class="input-group">
+                                <label for="num1">First Number</label>
+                                <input type="number" id="num1" placeholder="Enter first number" step="any">
+                            </div>
+                            <div class="input-group">
+                                <label for="operation">Operation</label>
+                                <select id="operation">
+                                    <option value="add">Addition (+)</option>
+                                    <option value="subtract">Subtraction (-)</option>
+                                    <option value="multiply">Multiplication (×)</option>
+                                    <option value="divide">Division (÷)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="num2">Second Number</label>
+                                <input type="number" id="num2" placeholder="Enter second number" step="any">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculate()">
+                                <i class="fas fa-equals"></i>
+                                Calculate
+                            </button>
+                        </div>
+                        <div class="result-container">
+                            <div id="result" class="result-display">
+                                <i class="fas fa-calculator"></i>
+                                <span>Result will appear here</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Room Section -->
+        <section id="room3d" class="room3d">
+            <div class="container">
+                <h2 class="section-title">Interactive 3D Room</h2>
+                <div class="room3d-container">
+                    <div class="room3d-header">
+                        <h3>Smart Room Demo</h3>
+                        <p>Explore our interactive 3D room and control the lighting with wall switches</p>
+                        <div class="room3d-controls">
+                            <div class="control-info">
+                                <i class="fas fa-mouse"></i>
+                                <span>Drag to rotate • Scroll to zoom • Click switches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room3d-viewport">
+                        <div id="room3d-canvas"></div>
+                        <div class="room3d-ui">
+                            <div class="lighting-controls">
+                                <h4>Lighting Status</h4>
+                                <div class="light-status">
+                                    <div class="light-item" id="light-main">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Main Light</span>
+                                        <div class="light-indicator off"></div>
+                                    </div>
+                                    <div class="light-item" id="light-bedside">
+                                        <i class="fas fa-bed"></i>
+                                        <span>Bedside Lamp</span>
+                                        <div class="light-indicator off"></div>
+                                    </div>
+                                    <div class="light-item" id="light-desk">
+                                        <i class="fas fa-desktop"></i>
+                                        <span>Desk Light</span>
+                                        <div class="light-indicator off"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="room-info">
+                                <h4>Room Info</h4>
+                                <p>Modern bedroom with smart lighting controls</p>
+                                <div class="room-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Lights On:</span>
+                                        <span class="stat-value" id="lights-on-count">0</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Power Usage:</span>
+                                        <span class="stat-value" id="power-usage">0W</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>Have questions or want to collaborate? We'd love to hear from you!</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@example.com</span>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>San Francisco, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-cube"></i>
+                        <span>Js3d</span>
+                    </div>
+                    <p>Building modern web applications with clean code and beautiful design.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#room3d">3D Room</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Js3d. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/room3d.js') }}"></script>
+</body>
+</html>
